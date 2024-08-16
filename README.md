@@ -61,7 +61,6 @@ Note: The following software is available on an external SSD:
 - Dark mode
 - Disable unnecessary apps on startup
 - Enable *Ultimate performance* power plan
-- Under *System Properties* (open with *View advanced system settings*) > *Performance Options* (under *Advanced* > *Performance* > *Settings*) choose *Adjust for best performance*
 - Disable notifications
 - Set language to English (US)
 - Set regional format (for date and time) to English (Europe)
