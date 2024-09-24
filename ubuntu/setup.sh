@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Enable strict error handling
-set -e
+# set -e
 set -o pipefail
 
 # ---------------------------------------------------------------------------- #
@@ -17,6 +17,19 @@ sudo apt install -y --no-install-recommends \
     tmux \
     python3-pip
 
+
+echo "Installing dotfiles..."
+
+git clone https://github.com/breuerpeter/dotfiles.git ~/dotfiles
+# git clone https://github.com/breuerpeter/dotfiles.git /mnt/c/Users/peter/.config
+
+chmod +x ~/dotfiles/install.sh
+~/dotfiles/install.sh
+
+echo "Installing software..."
+
+sudo snap install vivaldi
+
 # ---------------------------------------------------------------------------- #
 #                             Z Shell configuration                            #
 # ---------------------------------------------------------------------------- #
@@ -31,7 +44,6 @@ sudo chsh -s $(which zsh)
 
 # Set up Starship prompt (https://github.com/starship/starship)
 curl -sS https://starship.rs/install.sh | sh
-echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 
 # ---------------------------------------------------------------------------- #
 #                               Git configuration                              #
@@ -39,8 +51,8 @@ echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 
 echo "Git configuration in progress..."
 
-GIT_USERNAME = "Peter Breuer"
-GIT_EMAIL = "peter.breuer.profiles@gmail.com"
+GIT_USERNAME="Peter Breuer"
+GIT_EMAIL="peter.breuer.profiles@gmail.com"
 
 git config --global user.name $GIT_USERNAME
 git config --global user.email $GIT_EMAIL
@@ -52,8 +64,8 @@ git config --global core.excludesfile ~/.gitignore
 # SSH key for Github
 # https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
-SSH_KEY_EMAIL = $GIT_EMAIL
-SSH_KEY_NAME = "$HOSTNAME-github"
+SSH_KEY_EMAIL=$GIT_EMAIL
+SSH_KEY_NAME="$HOSTNAME-github"
 
 sudo apt install openssh-client
 eval $(ssh-agent)
@@ -70,32 +82,13 @@ Host github.com
 EOF
 
 echo "Copy and paste the following public key to GitHub (https://github.com/settings/keys):"
-cat ~/.ssh/$SSH_KEY_NAME
+cat ~/.ssh/$SSH_KEY_NAME.pub
 
-GIT_CHECK_SSH = ssh -T git@github.com
+GIT_CHECK_SSH="ssh -T git@github.com"
 echo "Check the connection using '$GIT_CHECK_SSH'"
 
 # Enable managing repos on Windows file system through WSL
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
-
-# ---------------------------------------------------------------------------- #
-#                                Miniconda setup                               #
-# ---------------------------------------------------------------------------- #
-
-echo "Miniconda setup in progress..."
-
-# Install
-# https://docs.anaconda.com/miniconda/#miniconda-latest-installer-links
-
-mkdir -p ~/miniconda3
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
-bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
-rm -rf ~/miniconda3/miniconda.sh
-
-~/miniconda3/bin/conda init zsh
-
-# Configure
-conda config --set auto_activate_base false
 
 # ---------------------------------------------------------------------------- #
 #                              Docker Engine setup                             #
@@ -117,14 +110,5 @@ sudo usermod -aG docker $USER
 newgrp docker
 
 # ---------------------------------------------------------------------------- #
-#                                Optional setup                                #
-# ---------------------------------------------------------------------------- #
 
-# echo "Optional setup in progress..."
-
-# sudo snap install -y \
-#     plotjuggler
-
-# sudp apt install -y \
-#     x11-xserver-utils \
-#     inkscape
+echo "Log out for shell config to take effect..."

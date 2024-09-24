@@ -1,33 +1,43 @@
 # PC-Setup
 
+## Manual configuration
+
+### General
+
+- Language: *English (US)*
+- Keyboard layout: *English (US)*
+- Formats (date/time): *Deutschland* or *English (Europe)*
+- Set hostname to device model (capitalized), e.g., `ZENBOOK`
+- Uninstall bloatware and unwanted optional features
+- Disable unnecessary startup-apps
+- Dark mode
+
+### Windows
+
+- Enable settings sync (Windows backup)
+- Adjust screen scaling
+- Disable lock screen
+- Enable file extensions for known file types
+- Enable *Ultimate performance* power plan
+- Disable notifications
+- Most commonly used apps in task bar
+- Show all apps in start window
+
+## Ubuntu
+
+1. Clone [PC-Setup repo](https://github.com/breuerpeter/PC-Setup): `git clone https://github.com/breuerpeter/PC-Setup.git ~/PC-Setup`
+2. Setup script: `chmod +x ~/PC-Config/ubuntu/setup.sh && ~/PC-Setup/ubuntu/setup.sh`
+3. Log in to [GitHub](https://gitub.com) and paste the public SSH key
+4. Log out and log back in for shell changes to take effect
+5. Manual configuration changes (optional):
+	- Dark mode: *Appearance* > *Window colors* > *Dark*
+	- Hide dock: *Appearance* > *Auto-hide the dock*
+
 ## Windows
 
-### Install software
-
-1. Install software that is available in WinGet automatically.
-
-    1. [Install WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
-    2. Install software:
-
-        PowerShell:
-        ```
-        .\setup.ps1
-        ```
-
-        Note: the script installs
-        - Windows Terminal
-        - VS Code
-        - VLC Media Player
-        - Vivaldi
-        - Slack
-        - Discord
-        - Zoom
-        - Betaflight Configurator
-        - Wireshark
-        - MobaXTerm
-        - OBS Studio
-
-2. Install other software manually.
+1. [Install WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/)
+2. Install software that is available in WinGet using the script in PowerShell: `.\setup.ps1`
+3. Install other software manually:
 
     - [Adobe Creative Cloud](https://apps.microsoft.com/store/detail/XPDLPKWG9SW2WD?ocid=pdpshare) (Acrobat, Lightroom Classic, Photoshop, Premiere Pro)
     - [TeX Live](https://tug.org/texlive/windows.html)
@@ -36,7 +46,19 @@
     - [Mendeley Reference Manager](https://www.mendeley.com/download-reference-manager/windows)
     - [Gyroflow](https://apps.microsoft.com/detail/9nzg7t0jcg9h)
 
-3. Install optional software (I've used these but not quite enough)
+4. Install WSL:
+
+	PowerShell:
+	```
+	wsl --install
+	wsl --install -d DISTRO_NAME
+	DISTRO_NAME config --default-user USER_NAME
+	```
+
+5. Steps 1-4 of Ubuntu setup in the WSL terminal
+6. Docker Engine config script: `chmod +x ~/PC-Config/ubuntu/configure_wsl_docker.sh && ~/PC-Setup/ubuntu_configure_wsl_docker.sh`
+
+6. Install optional software (I've used these but not quite enough)
 
     - Mathpix Snipping Tool
     - Ultimaker Cura
@@ -48,56 +70,6 @@
 
 Note: The following software is available on an external SSD:
 - Paragon Migrate OS to SSD
-
-### Manual configurations
-
-#### General
-
-- Set hostname to device model (capitalized), e.g., `ZENBOOK`
-- Enable settings sync (Windows backup)
-- Adjust screen scaling
-- Disable lock screen
-- Enable file extensions for known file types
-- Dark mode
-- Disable unnecessary apps on startup
-- Enable *Ultimate performance* power plan
-- Disable notifications
-- Set language to English (US)
-- Set regional format (for date and time) to English (Europe)
-- Set correct keyboard layout
-- Uninstall unwanted optional features
-- Most commonly used apps in task bar
-- Show all apps in start window
-
-#### VS Code
-
-- Turn on settings sync (link with GitHub).
-
-## WSL
-
-### Installation
-
-PowerShell:
-```
-wsl --install
-wsl --install -d DISTRO_NAME
-```
-
-### Configuration
-
-#### Setup script
-
-WSL terminal:
-```
-sudo bash setup.sh
-```
-
-#### Default user
-
-PowerShell:
-```
-DISTRO_NAME config --default-user USER_NAME
-```
 
 #### Windows Terminal
 

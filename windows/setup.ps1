@@ -1,5 +1,5 @@
 $programs = @(
-    "Microsoft.WindowsTerminal",
+    "wez.wezterm",
     "Microsoft.VisualStudioCode",
     "VideoLAN.VLC",
     "VivaldiTechnologies.Vivaldi",
