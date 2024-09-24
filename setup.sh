@@ -1,20 +1,19 @@
 #!/bin/bash
 
-# Init flag to track if there are changes that need a restart
-changes=0
-
-echo "Updating package list..."
-
-sudo apt update
+# Enable strict error handling
+set -e
+set -o pipefail
 
 # ---------------------------------------------------------------------------- #
 #                         Simple package installations                         #
 # ---------------------------------------------------------------------------- #
 
-echo "Installing packages..."
-sudo apt install -y \
-    zsh \
+echo "Simple package installations in progress..."
+
+sudo apt update
+sudo apt install -y --no-install-recommends \
     git \
+    zsh \
     tmux \
     python3-pip
 
@@ -22,32 +21,23 @@ sudo apt install -y \
 #                             Z Shell configuration                            #
 # ---------------------------------------------------------------------------- #
 
-# ------------------------ Change default shell to zsh ----------------------- #
+echo "Z Shell configuration in progress..."
 
+# Change default shell to zsh
 sudo chsh -s $(which zsh)
-changes=1
 
-# ----------------------------- Install Oh My Zsh ---------------------------- #
-
-# https://github.com/ohmyzsh/ohmyzsh
-
+# Install Oh My Zsh (https://github.com/ohmyzsh/ohmyzsh)
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# -------------------------- Set up Starship prompt -------------------------- #
-
-# https://github.com/starship/starship
-
+# Set up Starship prompt (https://github.com/starship/starship)
 curl -sS https://starship.rs/install.sh | sh
-
 echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 
 # ---------------------------------------------------------------------------- #
 #                               Git configuration                              #
 # ---------------------------------------------------------------------------- #
 
-echo "Configuring Git..."
-
-# ---------------------------- Username and email ---------------------------- #
+echo "Git configuration in progress..."
 
 GIT_USERNAME = "Peter Breuer"
 GIT_EMAIL = "peter.breuer.profiles@gmail.com"
@@ -55,13 +45,11 @@ GIT_EMAIL = "peter.breuer.profiles@gmail.com"
 git config --global user.name $GIT_USERNAME
 git config --global user.email $GIT_EMAIL
 
-# --------------------------- Global gitignore file -------------------------- #
-
+# Global gitignore file
 touch ~/.gitignore
 git config --global core.excludesfile ~/.gitignore
 
-# ------------------------- Setup SSH key for Github ------------------------- #
-
+# SSH key for Github
 # https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
 SSH_KEY_EMAIL = $GIT_EMAIL
@@ -84,18 +72,19 @@ EOF
 echo "Copy and paste the following public key to GitHub (https://github.com/settings/keys):"
 cat ~/.ssh/$SSH_KEY_NAME
 
-# Check if it works: ssh -T git@bitbucket.org
+GIT_CHECK_SSH = ssh -T git@github.com
+echo "Check the connection using '$GIT_CHECK_SSH'"
 
-# --------- Enable managing repos on Windows file system through WSL --------- #
-
+# Enable managing repos on Windows file system through WSL
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 
 # ---------------------------------------------------------------------------- #
-#                                   Miniconda                                  #
+#                                Miniconda setup                               #
 # ---------------------------------------------------------------------------- #
 
-# ---------------------------------- Install --------------------------------- #
+echo "Miniconda setup in progress..."
 
+# Install
 # https://docs.anaconda.com/miniconda/#miniconda-latest-installer-links
 
 mkdir -p ~/miniconda3
@@ -105,84 +94,33 @@ rm -rf ~/miniconda3/miniconda.sh
 
 ~/miniconda3/bin/conda init zsh
 
-# ---------------------------------- Config ---------------------------------- #
-
+# Configure
 conda config --set auto_activate_base false
 
 # ---------------------------------------------------------------------------- #
-#                                    Docker                                    #
+#                              Docker Engine setup                             #
 # ---------------------------------------------------------------------------- #
 
-# ------------- Install Docker Engine (using convenience script) ------------- #
-
+# Install Docker Engine (using convenience script)
 # https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script
 
-echo "Installing Docker Engine..."
+echo "Docker Engine setup in progress..."
 
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh ./get-docker.sh
 
-# -------------------------- Post-installation steps ------------------------- #
-
+# Post-installation steps
 # https://docs.docker.com/engine/install/linux-postinstall/
-
-echo "Performing Linux post-installation steps for Docker Engine..."
 
 sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 
-# -------------------------- Docker Daemon autostart ------------------------- #
-
-# https://dev.to/felipecrs/simply-run-docker-on-wsl2-3o8
-
-# Enable strict error handling
-set -e
-set -o pipefail
-
-WSL_CONFIG="/etc/wsl.conf"
-SECTION="[boot]"
-KEY="systemd"
-VALUE="true"
-
-# Check if the section exists
-if grep -q "$SECTION" "$WSL_CONFIG"; then
-    # Section exists, check if the key-value pair needs updating
-    if grep -q "^$SECTION" "$WSL_CONFIG" && grep -q "^$KEY=" "$WSL_CONFIG"; then
-        CURRENT_VALUE=$(grep "^$KEY=" "$WSL_CONFIG" | cut -d'=' -f2-)
-        if [ "$CURRENT_VALUE" != "$VALUE" ]; then
-            # Key exists but with a different value, update the value
-            sed -i "s/^$KEY=.*/$KEY=$VALUE/" "$WSL_CONFIG"
-            echo "Updated $KEY to $VALUE in $WSL_CONFIG"
-            changes=1
-        else
-            echo "$KEY is already set to $VALUE in $WSL_CONFIG"
-        fi
-    else
-        # Section exists but the key does not exist, add the key-value pair
-        sed -i "/^$SECTION/a $KEY=$VALUE" "$WSL_CONFIG"
-        echo "Added $KEY=$VALUE under $SECTION in $WSL_CONFIG"
-        changes=1
-    fi
-else
-    # Section does not exist, add the section and key-value pair
-    echo -e "$SECTION\n$KEY=$VALUE" >> "$WSL_CONFIG"
-    echo "Added $SECTION and $KEY=$VALUE in $WSL_CONFIG"
-    changes=1
-fi
-
-if [ "$changes" -eq 1 ]; then
-    echo -e "Restart the WSL instance for changes to take effect:\n \
-        wsl --terminate DISTRO_NAME\n \
-        wsl -d DISTRO_NAME"
-fi
-
-
 # ---------------------------------------------------------------------------- #
-#                                   Optional                                   #
+#                                Optional setup                                #
 # ---------------------------------------------------------------------------- #
 
-# echo "Installing optional packages..."
+# echo "Optional setup in progress..."
 
 # sudo snap install -y \
 #     plotjuggler
