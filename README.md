@@ -2,12 +2,20 @@
 
 ## General
 
+### Config
+
+- Hostname: device model (capitalized)
+- Username: *peter*
 - Language: *English (US)*
 - Keyboard layout: *English (US)*
-- Formats (date/time): *Deutschland* or *English (Europe)*
-- Set hostname to device model (capitalized), e.g., `ZENBOOK`
+
+### Performance
+
 - Uninstall bloatware and unwanted optional features
 - Disable unnecessary startup-apps
+
+### Appearance
+
 - Dark mode
 - Black background
 
@@ -18,7 +26,7 @@ cd ~ && git clone https://github.com/breuerpeter/PC-Setup.git && cd ./PC-Setup
 sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh`
 ```
 
-### Other software (optional)
+### Optional software
 
 #### Plotjuggler
 `sudo snap install -y plotjuggler`
@@ -27,8 +35,6 @@ sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh`
 `sudo apt update && sudo apt install -y --no-install-recommends inkscape`
 
 ## Windows
-
-### WSL
 
 (PowerShell)
 ```
@@ -43,32 +49,18 @@ cd /mnt/c/Users/peter && git clone https://github.com/breuerpeter/PC-Setup.git .
 sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh --wsl`
 ```
 
-### WinGet installations
+(PowerShell)
+```
+cd $HOME\.config\windows
+.\setup.ps1`
+```
 
-1. [Install WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/)
-2. In PowerShell, run `.\winget.ps1`
+Not available through *WinGet* yet:
 
-### Manual installations
-
-- [Adobe Creative Cloud](https://apps.microsoft.com/store/detail/XPDLPKWG9SW2WD?ocid=pdpshare) (Acrobat, Lightroom Classic, Photoshop, Premiere Pro)
 - [TeX Live](https://tug.org/texlive/windows.html)
 - [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html)
 - [Microsoft 365 Family](https://apps.microsoft.com/detail/cfq7ttc0k5dm)
-- [Mendeley Reference Manager](https://www.mendeley.com/download-reference-manager/windows)
-- [Gyroflow](https://apps.microsoft.com/detail/9nzg7t0jcg9h)
 
-### Other software (optional)
-
-- Mathpix Snipping Tool
-- Ultimaker Cura
-- Anki
-- StarStax
-- CCleaner
-- Siemens NX 12
-- [Ipe](https://ipe.otfried.org)
-
-Note: The following software is available on an external SSD:
-- Paragon Migrate OS to SSD
 
 ### Manual configuration
 
