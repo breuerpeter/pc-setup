@@ -50,22 +50,22 @@ sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh --wsl`
 
 ### Manual installations
 
-    - [Adobe Creative Cloud](https://apps.microsoft.com/store/detail/XPDLPKWG9SW2WD?ocid=pdpshare) (Acrobat, Lightroom Classic, Photoshop, Premiere Pro)
-    - [TeX Live](https://tug.org/texlive/windows.html)
-    - [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html)
-    - [Microsoft 365 Family](https://apps.microsoft.com/detail/cfq7ttc0k5dm)
-    - [Mendeley Reference Manager](https://www.mendeley.com/download-reference-manager/windows)
-    - [Gyroflow](https://apps.microsoft.com/detail/9nzg7t0jcg9h)
+- [Adobe Creative Cloud](https://apps.microsoft.com/store/detail/XPDLPKWG9SW2WD?ocid=pdpshare) (Acrobat, Lightroom Classic, Photoshop, Premiere Pro)
+- [TeX Live](https://tug.org/texlive/windows.html)
+- [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html)
+- [Microsoft 365 Family](https://apps.microsoft.com/detail/cfq7ttc0k5dm)
+- [Mendeley Reference Manager](https://www.mendeley.com/download-reference-manager/windows)
+- [Gyroflow](https://apps.microsoft.com/detail/9nzg7t0jcg9h)
 
 ### Other software (optional)
 
-    - Mathpix Snipping Tool
-    - Ultimaker Cura
-    - Anki
-    - StarStax
-    - CCleaner
-    - Siemens NX 12
-    - [Ipe](https://ipe.otfried.org)
+- Mathpix Snipping Tool
+- Ultimaker Cura
+- Anki
+- StarStax
+- CCleaner
+- Siemens NX 12
+- [Ipe](https://ipe.otfried.org)
 
 Note: The following software is available on an external SSD:
 - Paragon Migrate OS to SSD
