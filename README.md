@@ -23,7 +23,7 @@
 
 ```
 cd ~ && git clone https://github.com/breuerpeter/PC-Setup.git && cd ./PC-Setup
-sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh`
+sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh
 ```
 
 ### Optional software
@@ -45,14 +45,14 @@ DISTRO_NAME config --default-user USER_NAME
 
 (WSL)
 ```
-cd /mnt/c/Users/peter && git clone https://github.com/breuerpeter/PC-Setup.git ./.config && cd ./PC-Setup`
-sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh --wsl`
+cd /mnt/c/Users/peter && git clone https://github.com/breuerpeter/PC-Setup.git ./.config && cd ./.config
+sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh --wsl
 ```
 
 (PowerShell)
 ```
 cd $HOME\.config\windows
-.\setup.ps1`
+.\setup.ps1
 ```
 
 Not available through *WinGet* yet:
