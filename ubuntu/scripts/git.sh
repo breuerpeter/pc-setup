@@ -28,7 +28,7 @@ cd ~/.ssh
 ssh-keygen -t ed25519 -b 4096 -C $SSH_KEY_EMAIL -f $SSH_KEY_NAME
 ssh-add ~/.ssh/$SSH_KEY_NAME
 
-tee ~/.ssh/config <<EOF
+tee -a ~/.ssh/config <<EOF
 Host github.com
   AddKeysToAgent yes
   IdentityFile ~/.ssh/$SSH_KEY_NAME
@@ -45,4 +45,4 @@ sleep 2
 # Enable managing repos on Windows file system through WSL
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 
-"Git setup complete."
+echo "Git setup complete."

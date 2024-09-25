@@ -96,7 +96,7 @@ if ($confirmation -ne 'y') {
 
 if (Get-Command winget -ErrorAction SilentlyContinue) {
     foreach ($program in $programs) {
-        winget install -e --id $program
+        winget install -e --name $program
     }
 } else {
     Write-Output "Winget is not installed. Please install Winget to proceed."
