@@ -10,15 +10,18 @@ config = {
 	window_decorations = "RESIZE",
 	default_cursor_style = "SteadyBar",
 }
---config.wsl_domains = {
---	{
---		-- Unique identifier
---		name = "WSL:Ubuntu22",
---		-- Must match a valid distro from 'wsl -l -v'
---		distribution = "Ubuntu-22.04",
---	}
---}
---config.default_domain = "Ubuntu-22.04"
+
+if wezterm.running_under_wsl() then
+	config.wsl_domains = {
+		{
+			-- Unique identifier
+			name = "WSL:Ubuntu22",
+			-- Must match a valid distro from 'wsl -l -v'
+			distribution = "Ubuntu-22.04",
+		}
+	}
+	config.default_domain = "Ubuntu-22.04"
+end
 
 -- Maximize window on startup
 wezterm.on("gui-startup", function(cmd)
