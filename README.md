@@ -11,6 +11,7 @@
 - Uninstall bloatware and unwanted optional features
 - Disable unnecessary startup-apps
 - Dark mode
+- Black background
 
 ### Windows
 
@@ -25,18 +26,33 @@
 
 ## Ubuntu
 
-1. Clone [PC-Setup repo](https://github.com/breuerpeter/PC-Setup): `git clone https://github.com/breuerpeter/PC-Setup.git ~/PC-Setup`
-2. Setup script: `chmod +x ~/PC-Config/ubuntu/setup.sh && ~/PC-Setup/ubuntu/setup.sh`
-3. Log in to [GitHub](https://gitub.com) and paste the public SSH key
-4. Log out and log back in for shell changes to take effect
-5. Manual configuration changes (optional):
-	- Dark mode: *Appearance* > *Window colors* > *Dark*
-	- Hide dock: *Appearance* > *Auto-hide the dock*
+1. Clone [PC-Setup repo](https://github.com/breuerpeter/PC-Setup): `cd ~ && git clone https://github.com/breuerpeter/PC-Setup.git`
+2. Setup script: `sudo chmod +x PC-Config/ubuntu PC-Config/ubuntu/scripts && PC-Setup/ubuntu/setup.sh`
+3. Optional software:
+
+	- Plotjuggler: `sudo snap install -y plotjuggler`
+	- Inkscape: `sudo apt update && sudo apt install -y --no-install-recommends inkscape`
 
 ## Windows
 
+1. Install WSL (in PowerShell):
+
+        ```
+        wsl --install
+        wsl --install -d DISTRO_NAME
+        DISTRO_NAME config --default-user USER_NAME
+        ```
+2. Steps 1-2
 1. [Install WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/)
 2. Install software that is available in WinGet using the script in PowerShell: `.\setup.ps1`
+3. Install WSL (in PowerShell)
+
+        ```
+        wsl --install
+        wsl --install -d DISTRO_NAME
+        DISTRO_NAME config --default-user USER_NAME
+	```
+
 3. Install other software manually:
 
     - [Adobe Creative Cloud](https://apps.microsoft.com/store/detail/XPDLPKWG9SW2WD?ocid=pdpshare) (Acrobat, Lightroom Classic, Photoshop, Premiere Pro)
@@ -46,14 +62,6 @@
     - [Mendeley Reference Manager](https://www.mendeley.com/download-reference-manager/windows)
     - [Gyroflow](https://apps.microsoft.com/detail/9nzg7t0jcg9h)
 
-4. Install WSL:
-
-	PowerShell:
-	```
-	wsl --install
-	wsl --install -d DISTRO_NAME
-	DISTRO_NAME config --default-user USER_NAME
-	```
 
 5. Steps 1-4 of Ubuntu setup in the WSL terminal
 6. Docker Engine config script: `chmod +x ~/PC-Config/ubuntu/configure_wsl_docker.sh && ~/PC-Setup/ubuntu_configure_wsl_docker.sh`
