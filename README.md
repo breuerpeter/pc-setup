@@ -13,12 +13,18 @@
 
 ## Ubuntu
 
-1. Clone [this repo](https://github.com/breuerpeter/PC-Setup): `cd ~ && git clone https://github.com/breuerpeter/PC-Setup.git && cd ./PC-Setup`
-2. Run setup script: `sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh`
-3. Optional software:
+```
+cd ~ && git clone https://github.com/breuerpeter/PC-Setup.git && cd ./PC-Setup
+sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh`
+```
 
-	- Plotjuggler: `sudo snap install -y plotjuggler`
-	- Inkscape: `sudo apt update && sudo apt install -y --no-install-recommends inkscape`
+### Optional software:
+
+#### Plotjuggler
+`sudo snap install -y plotjuggler`
+
+### Inkscape
+`sudo apt update && sudo apt install -y --no-install-recommends inkscape`
 
 ## Windows
 
