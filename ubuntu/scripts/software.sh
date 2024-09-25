@@ -1,8 +1,12 @@
-!#/bin/bash
+#!/bin/bash
 
-echo "Installing software..."
+WSL=$( [[ " $* " =~ " --wsl " ]] && echo true || echo false )
 
-# Browser
-sudo snap install vivaldi
+echo "Software setup in progress..."
 
-echo "Completed."
+if [[ "$WSL" = false ]]; then
+	# Browser
+	sudo snap install vivaldi
+fi
+
+echo "Software setup complete."

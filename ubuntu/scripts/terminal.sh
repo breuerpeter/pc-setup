@@ -1,4 +1,6 @@
-i!#/bin/bash
+#!/bin/bash
+
+WSL=$( [[ " $* " =~ " --wsl " ]] && echo true || echo false )
 
 echo "Terminal setup in progress..."
 
@@ -8,35 +10,46 @@ sudo apt update && sudo apt install -y --no-install-recommends \
 	zsh \
 	tmux
 
-if ! echo "$@" | grep -q "--wsl"; then
-
-        # Wezterm APT repo
+if [[ "$WSL" = false ]]; then
+	# Install wezterm
+	# See https://wezfurlong.org/wezterm/install/linux.html
         curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
         echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
-
         sudo apt update && sudo apt install -y --no-install-recommends wezterm
+fi
 
+echo "Creating symlinks for dotfiles..."
 
-echo "Installing dotfiles..."
-
-git clone https://github.com/breuerpeter/dotfiles.git ~/dotfiles
-# git clone https://github.com/breuerpeter/dotfiles.git /mnt/c/Users/peter/.config
-
-chmod +x ~/dotfiles/install.sh
-~/dotfiles/install.sh
+mkdir -p ~/.config/wezterm/
+ln -s ./wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
+ln -s ./tmux/.tmux.conf ~/.tmux.conf
+ln -s ./zsh/.zshrc ~/.zshrc
 
 echo "Configuring Z Shell..."
 
 # Change default shell to zsh
 sudo chsh -s $(which zsh)
 
-# Install Oh My Zsh (https://github.com/ohmyzsh/ohmyzsh)
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Set up Starship prompt (https://github.com/starship/starship)
+# Install Starship prompt
+# See https://github.com/starship/starship
 curl -sS https://starship.rs/install.sh | sh
 
-echo "Terminal setup complete."
+echo "Installing tmux plugin manager (TPM)..."
 
-echo "Log out for changes to take effect."
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+        echo "Installed TPM."
+else
+        echo "TPM is already installed."
+fi
+
+echo "Installing tmux plugins..."
+
+tmux new-session -d -s temp
+sleep 1
+~/.tmux/plugins/tpm/bin/install_plugins
+tmux kill-session -t temp
+tmux source-file ~/.tmux.conf
+
+echo "Terminal setup complete. Log out for changes to take effect."
 sleep 5

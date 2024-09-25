@@ -1,8 +1,6 @@
 # PC-Setup
 
-## Manual configuration
-
-### General
+## General
 
 - Language: *English (US)*
 - Keyboard layout: *English (US)*
@@ -13,21 +11,10 @@
 - Dark mode
 - Black background
 
-### Windows
-
-- Enable settings sync (Windows backup)
-- Adjust screen scaling
-- Disable lock screen
-- Enable file extensions for known file types
-- Enable *Ultimate performance* power plan
-- Disable notifications
-- Most commonly used apps in task bar
-- Show all apps in start window
-
 ## Ubuntu
 
-1. Clone [PC-Setup repo](https://github.com/breuerpeter/PC-Setup): `cd ~ && git clone https://github.com/breuerpeter/PC-Setup.git`
-2. Setup script: `sudo chmod +x PC-Config/ubuntu PC-Config/ubuntu/scripts && PC-Setup/ubuntu/setup.sh`
+1. Clone [this repo](https://github.com/breuerpeter/PC-Setup): `cd ~ && git clone https://github.com/breuerpeter/PC-Setup.git && cd ./PC-Setup`
+2. Run setup script: `sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh`
 3. Optional software:
 
 	- Plotjuggler: `sudo snap install -y plotjuggler`
@@ -35,25 +22,19 @@
 
 ## Windows
 
-1. Install WSL (in PowerShell):
-
-        ```
-        wsl --install
-        wsl --install -d DISTRO_NAME
-        DISTRO_NAME config --default-user USER_NAME
-        ```
-2. Steps 1-2
 1. [Install WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/)
 2. Install software that is available in WinGet using the script in PowerShell: `.\setup.ps1`
-3. Install WSL (in PowerShell)
+3. Install WSL (in PowerShell):
 
         ```
         wsl --install
         wsl --install -d DISTRO_NAME
         DISTRO_NAME config --default-user USER_NAME
-	```
+        ```
 
-3. Install other software manually:
+4. Clone [this repo](https://github.com/breuerpeter/PC-Setup): `cd /mnt/c/Users/peter && git clone https://github.com/breuerpeter/PC-Setup.git ./.config && cd ./PC-Setup`
+5. Run setup script (with the `--wsl` flag): `sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh --wsl`
+6. Install other software manually:
 
     - [Adobe Creative Cloud](https://apps.microsoft.com/store/detail/XPDLPKWG9SW2WD?ocid=pdpshare) (Acrobat, Lightroom Classic, Photoshop, Premiere Pro)
     - [TeX Live](https://tug.org/texlive/windows.html)
@@ -62,11 +43,7 @@
     - [Mendeley Reference Manager](https://www.mendeley.com/download-reference-manager/windows)
     - [Gyroflow](https://apps.microsoft.com/detail/9nzg7t0jcg9h)
 
-
-5. Steps 1-4 of Ubuntu setup in the WSL terminal
-6. Docker Engine config script: `chmod +x ~/PC-Config/ubuntu/configure_wsl_docker.sh && ~/PC-Setup/ubuntu_configure_wsl_docker.sh`
-
-6. Install optional software (I've used these but not quite enough)
+7. Install optional software (I've used these but not quite enough)
 
     - Mathpix Snipping Tool
     - Ultimaker Cura
@@ -79,7 +56,18 @@
 Note: The following software is available on an external SSD:
 - Paragon Migrate OS to SSD
 
-#### Windows Terminal
+### Manual configuration
+
+- Enable settings sync (Windows backup)
+- Adjust screen scaling
+- Disable lock screen
+- Enable file extensions for known file types
+- Enable *Ultimate performance* power plan
+- Disable notifications
+- Most commonly used apps in task bar
+- Show all apps in start window
+
+### Windows Terminal
 
 1. Install a [Nerd Font](https://www.nerdfonts.com/font-downloads), e.g., *FiraCode*.
 

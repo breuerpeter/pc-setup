@@ -4,16 +4,19 @@
 # set -e
 set -o pipefail
 
-SCRIPT_DIR="$HOME/PC-Setup/ubuntu/scripts"
+WSL_FLAG = ""
+WSL=$( [[ " $* " =~ " --wsl " ]] && echo true || echo false )
+if [[ "$WSL" = false ]]; then
+	WSL_FLAG="--wsl"
 
 if [ $# -eq 0 ]; then
 	# Run all scripts if no command-line arguments passed
 	echo "Starting setup (all)..."
 
-		for script in $SCRIPT_DIR/*.sh; do
+		for script in ./ubuntu/scripts/*.sh; do
                 if [ -f $script ]; then
                         echo "Executing '$script'..."
-                        bash "$script"
+                        bash "$script $WSL_FLAG" 
                 else
                         echo "$script not found!"
                 fi
@@ -24,10 +27,10 @@ else
 
 	# Run scripts specified by command-line arguments
 	for script in "$@"; do
-		SCRIPT="$SCRIPT_DIR/$script.sh"
+		SCRIPT="./ubuntu/scripts/$script.sh"
 		if [ -f $SCRIPT ]; then
 			echo "Executing '$SCRIPT'..."
-			bash "$SCRIPT"
+			bash "$SCRIPT $WSL_FLAG"
 		else
 			echo "$SCRIPT not found!"
 		fi

@@ -2,18 +2,22 @@
 
 echo "Appearance setup in progress..."
 
-# Clear background (make black)
-gsettings set org.gnome.desktop.background picture-options 'none'
+WSL=$( [[ " $* " =~ " --wsl " ]] && echo true || echo false )
 
-# Hide icons from desktop
-gsettings set org.gnome.shell.extensions.desktop-icons show-home false
-gsettings set org.gnome.shell.extensions.desktop-icons show-trash false
+if [[ "$WSL" = false ]]; then
+	# Clear background (make black)
+	gsettings set org.gnome.desktop.background picture-options 'none'
 
-# Dark mode
-gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
+	# Hide icons from desktop
+	gsettings set org.gnome.shell.extensions.desktop-icons show-home false
+	gsettings set org.gnome.shell.extensions.desktop-icons show-trash false
 
-# Auto-hide dock
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
-gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
+	# Dark mode
+	gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
+
+	# Auto-hide dock
+	gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
+	gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
+fi
 
 echo "Appearance setup complete."

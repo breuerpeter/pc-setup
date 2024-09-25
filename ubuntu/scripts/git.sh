@@ -36,11 +36,11 @@ EOF
 
 echo "Copy and paste the following public key to GitHub (https://github.com/settings/keys):"
 cat ~/.ssh/$SSH_KEY_NAME.pub
-
 sleep 5
 
 GIT_CHECK_SSH="ssh -T git@github.com"
 echo "Check the connection using '$GIT_CHECK_SSH'"
+sleep 2
 
 # Enable managing repos on Windows file system through WSL
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
