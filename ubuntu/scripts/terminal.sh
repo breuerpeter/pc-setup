@@ -20,10 +20,16 @@ fi
 
 echo "Creating symlinks for dotfiles..."
 
-mkdir -p ~/.config/wezterm/
-ln -s ./wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
-ln -s ./tmux/.tmux.conf ~/.tmux.conf
-ln -s ./zsh/.zshrc ~/.zshrc
+if [[ "$WSL" = true ]]; then
+	REPO_DIR=/mnt/c/Users/peter/.config
+else
+	REPO_DIR=$HOME/PC-Setup
+	mkdir -p $REPO_DIR/.config/wezterm/
+	ln -s $REPO_DIR/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
+fi
+
+ln -s $REPO_DIR/tmux/.tmux.conf ~/.tmux.conf
+ln -s $REPO_DIR/zsh/.zshrc ~/.zshrc
 
 echo "Configuring Z Shell..."
 
@@ -36,8 +42,8 @@ curl -sS https://starship.rs/install.sh | sh
 
 echo "Installing tmux plugin manager (TPM)..."
 
-if [ ! -d ~/.tmux/plugins/tpm ]; then
-        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ ! -d $HOME/.tmux/plugins/tpm ]; then
+        git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
         echo "Installed TPM."
 else
         echo "TPM is already installed."
@@ -47,9 +53,9 @@ echo "Installing tmux plugins..."
 
 tmux new-session -d -s temp
 sleep 1
-~/.tmux/plugins/tpm/bin/install_plugins
+$HOME/.tmux/plugins/tpm/bin/install_plugins
 tmux kill-session -t temp
-tmux source-file ~/.tmux.conf
+tmux source-file $HOME/.tmux.conf
 
 echo "Terminal setup complete. Log out for changes to take effect."
 sleep 5
