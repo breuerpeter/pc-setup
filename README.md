@@ -73,16 +73,5 @@ Not available through *WinGet* yet:
 - Most commonly used apps in task bar
 - Show all apps in start window
 
-### Windows Terminal
-
-1. Install a [Nerd Font](https://www.nerdfonts.com/font-downloads), e.g., *FiraCode*.
-
-    Note: Download the archive, unzip, select all, right click and install.
-2. Set the WSL distro profile as the default profile on startup (*Settings* > *Startup*).
-3. Make sure Windows Terminal uses the Windows theme (*Settings* > *Appearance*).
-4. Customize the default profile settings (*Settings* > *Profiles* > *Defaults*)
-    - *Appearance*
-        - Color scheme: *One Half Dark* 
-        - Font face: *FiraCode*
-        - Font size: 10
-        - Background opacity: 80%
+## Update repo origin URL
+After the setup is completed, run `git remote set-url origin git@github.com:breuerpeter/PC-Setup.git`
