@@ -18,29 +18,37 @@ cd ~ && git clone https://github.com/breuerpeter/PC-Setup.git && cd ./PC-Setup
 sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh`
 ```
 
-### Optional software:
+### Other software (optional)
 
 #### Plotjuggler
 `sudo snap install -y plotjuggler`
 
-### Inkscape
+#### Inkscape
 `sudo apt update && sudo apt install -y --no-install-recommends inkscape`
 
 ## Windows
 
+### WSL
+
+(PowerShell)
+```
+wsl --install
+wsl --install -d DISTRO_NAME
+DISTRO_NAME config --default-user USER_NAME
+```
+
+(WSL)
+```
+cd /mnt/c/Users/peter && git clone https://github.com/breuerpeter/PC-Setup.git ./.config && cd ./PC-Setup`
+sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh --wsl`
+```
+
+### WinGet installations
+
 1. [Install WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/)
-2. Install software that is available in WinGet using the script in PowerShell: `.\setup.ps1`
-3. Install WSL (in PowerShell):
+2. In PowerShell, run `.\winget.ps1`
 
-        ```
-        wsl --install
-        wsl --install -d DISTRO_NAME
-        DISTRO_NAME config --default-user USER_NAME
-        ```
-
-4. Clone [this repo](https://github.com/breuerpeter/PC-Setup): `cd /mnt/c/Users/peter && git clone https://github.com/breuerpeter/PC-Setup.git ./.config && cd ./PC-Setup`
-5. Run setup script (with the `--wsl` flag): `sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh --wsl`
-6. Install other software manually:
+### Manual installations
 
     - [Adobe Creative Cloud](https://apps.microsoft.com/store/detail/XPDLPKWG9SW2WD?ocid=pdpshare) (Acrobat, Lightroom Classic, Photoshop, Premiere Pro)
     - [TeX Live](https://tug.org/texlive/windows.html)
@@ -49,7 +57,7 @@ sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh`
     - [Mendeley Reference Manager](https://www.mendeley.com/download-reference-manager/windows)
     - [Gyroflow](https://apps.microsoft.com/detail/9nzg7t0jcg9h)
 
-7. Install optional software (I've used these but not quite enough)
+### Other software (optional)
 
     - Mathpix Snipping Tool
     - Ultimaker Cura
