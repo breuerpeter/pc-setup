@@ -25,7 +25,7 @@ $creative = @(
 "OBS Studio",
 "Inkscape",
 "Gyroflow"
-# "Adobe Creative Cloud"
+
 )
 
 $learning = @(
@@ -49,7 +49,7 @@ $lists = @{
 "hardware" = $hardware
 "research" = $resarch
 "creative" = $creative
-"learning" = "learning"
+"learning" = $learning
 "drones" = $drones
 "social" = $social
 }
@@ -74,14 +74,34 @@ $programs = $programs | Select-Object -Unique
 # See https://learn.microsoft.com/en-us/windows/package-manager/winget/#install-winget-on-windows-sandbox
 # Update the URI using https://github.com/microsoft/winget-cli/releases
 
+$WINGET_FILE = "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
+$VCLIBS_FILE = "Microsoft.VCLibs.x64.14.00.Desktop.appx"
+$XAML_FILE = "Microsoft.UI.Xaml.2.8.x64.appx"
+
 $progressPreference = 'silentlyContinue'
 Write-Information "Downloading WinGet and its dependencies..."
-Invoke-WebRequest -Uri https://aka.ms/getwinget -OutFile Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
-Invoke-WebRequest -Uri https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx -OutFile Microsoft.VCLibs.x64.14.00.Desktop.appx
-Invoke-WebRequest -Uri https://github.com/microsoft/microsoft-ui-xaml/releases/download/v2.8.6/Microsoft.UI.Xaml.2.8.x64.appx -OutFile Microsoft.UI.Xaml.2.8.x64.appx
-Add-AppxPackage Microsoft.VCLibs.x64.14.00.Desktop.appx
-Add-AppxPackage Microsoft.UI.Xaml.2.8.x64.appx
-Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
+Invoke-WebRequest -Uri https://aka.ms/getwinget -OutFile $WINGET_FILE
+Invoke-WebRequest -Uri https://aka.ms/$VCLIBS_FILE -OutFile $VCLIBS_FILE 
+Invoke-WebRequest -Uri https://github.com/microsoft/microsoft-ui-xaml/releases/download/v2.8.6/$XAML_FILE -OutFile $XAML_FILE
+Add-AppxPackage $VCLIBS_FILE
+Add-AppxPackage $XAML_FILE
+Add-AppxPackage $WINGET_FILE
+
+# Cleanup downloaded files
+$filesToRemove = @(
+    $WINGET_FILE,
+    $VCLIBS_FILE,
+    $XAML_FILE
+)
+
+foreach ($file in $filesToRemove) {
+    if (Test-Path $file) {
+        Remove-Item $file -Force
+        Write-Information "Removed $file."
+    } else {
+        Write-Information "$file does not exist, skipping removal."
+    }
+}
 
 Write-Host "The following programs will be installed:"
 foreach ($program in $programs) {
