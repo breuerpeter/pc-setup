@@ -15,3 +15,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
+
+# Start the SSH agent if it's not already running
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+	eval "$(ssh-agent -s)"
+fi

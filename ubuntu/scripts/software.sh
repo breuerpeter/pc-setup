@@ -8,6 +8,7 @@ if [[ "$WSL" = false ]]; then
 	sudo snap install vivaldi
 	sudo snap install --classic code
 	sudo snap install --classic slack
+	pip install rerun-sdk
 fi
 
 echo "Software setup complete."
