@@ -24,7 +24,7 @@ if [[ "$WSL" = true ]]; then
 	REPO_DIR=/mnt/c/Users/peter/.config
 else
 	REPO_DIR=$HOME/PC-Setup
-	mkdir -p $REPO_DIR/.config/wezterm/
+	mkdir -p ~/.config/wezterm
 	ln -s $REPO_DIR/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
 fi
 
