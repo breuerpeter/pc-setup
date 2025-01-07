@@ -34,7 +34,7 @@ ln -s $REPO_DIR/zsh/.zshrc ~/.zshrc
 echo "Configuring Z Shell..."
 
 # Change default shell to zsh
-sudo chsh -s $(which zsh)
+chsh -s $(which zsh)
 
 # Install Starship prompt
 # See https://github.com/starship/starship
