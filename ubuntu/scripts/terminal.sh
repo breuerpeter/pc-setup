@@ -57,5 +57,8 @@ $HOME/.tmux/plugins/tpm/bin/install_plugins
 tmux kill-session -t temp
 tmux source-file $HOME/.tmux.conf
 
+# Set default terminal emulator to Wezterm
+sudo update-alternatives --set x-terminal-emulator /usr/bin/open-wezterm-here
+
 echo "Terminal setup complete. Log out for changes to take effect."
 sleep 5
