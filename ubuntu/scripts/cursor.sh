@@ -40,7 +40,7 @@ Type=Application
 Categories=Development;
 EOL
 
-    echo "Adding cursor alias to .bashrc..."
+    echo "Adding cursor alias to .zshrc..."
     bash -c "cat >> $HOME/.zshrc" <<EOL
 
 # Cursor alias

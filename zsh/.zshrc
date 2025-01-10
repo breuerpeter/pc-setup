@@ -1,5 +1,7 @@
 eval "$(starship init zsh)"
-alias cursor='~/Applications/your-app.AppImage --no-sandbox'
+
+# Aliases
+alias cursor='/opt/cursor.appimage --no-sandbox'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
