@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Git setup in progress..."
+echo "Personal GitHub setup in progress..."
 
 sudo apt install -y --no-install-recommends git
 
@@ -25,12 +25,17 @@ eval $(ssh-agent)
 mkdir -p ~/.ssh
 cd ~/.ssh
 
+tee -a ~/.ssh/config <<EOF
+Host *
+  AddKeysToAgent yes
+EOF
+
 ssh-keygen -t ed25519 -b 4096 -C $SSH_KEY_EMAIL -f $SSH_KEY_NAME
 ssh-add ~/.ssh/$SSH_KEY_NAME
 
 tee -a ~/.ssh/config <<EOF
-Host github.com
-  AddKeysToAgent yes
+Host github-personal
+  HostName github.com
   IdentityFile ~/.ssh/$SSH_KEY_NAME
 EOF
 

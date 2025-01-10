@@ -22,7 +22,7 @@
 ## Ubuntu
 
 ```
-cd ~ && git clone https://github.com/breuerpeter/PC-Setup.git && cd ./PC-Setup
+mkdir -p ~/Code && mkdir -p ~/Code/Personal && cd ~/Code/Personal && git clone https://github.com/breuerpeter/PC-Setup.git && cd ./PC-Setup
 sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh
 ```
 
@@ -74,4 +74,4 @@ Not available through *WinGet* yet:
 - Show all apps in start window
 
 ## Update repo origin URL
-After the setup is completed, run `git remote set-url origin git@github.com:breuerpeter/PC-Setup.git`
+After the setup is completed, run `git remote set-url origin git@github-personal:breuerpeter/PC-Setup.git`

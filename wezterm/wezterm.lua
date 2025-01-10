@@ -6,7 +6,7 @@ config = {
 	enable_tab_bar = false,
 	font_size = 11,
 	color_scheme = "Night Owl (Gogh)",
-	window_background_opacity = 0.9,
+	window_background_opacity = 0.8,
 	window_decorations = "RESIZE",
 	default_cursor_style = "SteadyBar",
 }
