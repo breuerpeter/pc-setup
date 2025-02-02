@@ -7,7 +7,7 @@ $general = @(
 
 $software = @(
 "Microsoft Visual Studio Code",
-"Cursor",
+"Cursor", # TODO
 "MobaXterm"
 )
 
