@@ -12,4 +12,6 @@ if [[ "$WSL" = false ]]; then
 	pip install rerun-sdk
 fi
 
+sudo snap install gitkraken --classic
+
 echo "Software setup complete."
