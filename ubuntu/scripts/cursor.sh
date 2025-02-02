@@ -1,5 +1,9 @@
 #!/bin/bash
 
+WIN_USERNAME=peter # TODO
+
+WSL=$( [[ " $* " =~ " --wsl " ]] && echo true || echo false )
+
 installCursor() {
 if ! [ -f /opt/cursor.appimage ]; then
 echo "Installing Cursor AI IDE..."
@@ -57,4 +61,9 @@ else
 fi
 }
 
-installCursor
+if [[ "$WSL" = false ]]; then
+    installCursor
+else
+    # Add cursor alias to .zshrc
+    echo -e '\n# Cursor \nexport PATH="$PATH:/mnt/c/Users/$WIN_USERNAME/AppData/Local/Programs/cursor/resources/app/bin"' >> ~/.zshrc
+fi

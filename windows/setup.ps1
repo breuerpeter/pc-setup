@@ -7,6 +7,7 @@ $general = @(
 
 $software = @(
 "Microsoft Visual Studio Code",
+"Cursor",
 "MobaXterm"
 )
 
@@ -47,7 +48,7 @@ $lists = @{
 "general" = $general
 "software" = $software
 "hardware" = $hardware
-"research" = $resarch
+"research" = $research
 "creative" = $creative
 "learning" = $learning
 "drones" = $drones
