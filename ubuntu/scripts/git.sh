@@ -28,6 +28,7 @@ cd ~/.ssh
 tee -a ~/.ssh/config <<EOF
 Host *
   AddKeysToAgent yes
+  ForwardAgent yes
 EOF
 
 ssh-keygen -t ed25519 -b 4096 -C $SSH_KEY_EMAIL -f $SSH_KEY_NAME

@@ -30,6 +30,7 @@ fi
 
 ln -s $REPO_DIR/tmux/.tmux.conf ~/.tmux.conf
 ln -s $REPO_DIR/zsh/.zshrc ~/.zshrc
+ln -s $REPO_DIR/zsh/.zprofile ~/.zprofile
 
 echo "Configuring Z Shell..."
 
