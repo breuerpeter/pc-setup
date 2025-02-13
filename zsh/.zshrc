@@ -1,7 +1,7 @@
 eval "$(starship init zsh)"
 
 # Aliases
-# alias cursor='/opt/cursor.appimage --no-sandbox' # TODO: should be obsolete as cursor.sh writes alias
+# alias wireshark='wireshark & disown'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

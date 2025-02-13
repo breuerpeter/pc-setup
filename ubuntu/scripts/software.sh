@@ -9,6 +9,8 @@ if [[ "$WSL" = false ]]; then
 	sudo snap install --classic code
 	# sudo snap install --classic slack
 	sudo apt install vim
+	sudo apt install screen
+	sudo apt install wireshark
 	pip install rerun-sdk
 fi
 
