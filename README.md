@@ -75,3 +75,6 @@ Not available through *WinGet* yet:
 
 ## Update repo origin URL
 After the setup is completed, run `git remote set-url origin git@github-personal:breuerpeter/PC-Setup.git`
+
+# TODO:
+- Figure out a way to handle zshrc edits by other scripts
