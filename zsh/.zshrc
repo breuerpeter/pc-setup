@@ -21,3 +21,9 @@ unset __conda_setup
 export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 
 export PATH="$HOME/.local/bin:$PATH"
+
+# todo the following is written by cursor.sh
+# Cursor alias
+function cursor() {
+    /opt/cursor.appimage --no-sandbox "${@}" > /dev/null 2>&1 & disown
+}
