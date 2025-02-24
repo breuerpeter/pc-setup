@@ -1,7 +1,5 @@
 #!/bin/bash
 
-WSL=$( [[ " $* " =~ " --wsl " ]] && echo true || echo false )
-
 # Install Docker Engine (using convenience script)
 # https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script
 
@@ -19,7 +17,7 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 
-f [[ "$WSL" = true ]]; then
+if [ -n "$WSL_DISTRO_NAME" ]; then
 
 	changes=0
 

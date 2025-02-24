@@ -1,8 +1,5 @@
 eval "$(starship init zsh)"
 
-# Aliases
-# alias wireshark='wireshark & disown'
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/peter/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -18,12 +15,19 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# Additions to PATH
 export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
-
 export PATH="$HOME/.local/bin:$PATH"
 
-# todo the following is written by cursor.sh
-# Cursor alias
-function cursor() {
-    /opt/cursor.appimage --no-sandbox "${@}" > /dev/null 2>&1 & disown
-}
+# Aliases
+alias wireshark='wireshark & disown'
+
+if [ -n "$WSL_DISTRO_NAME" ]; then
+    # Add Windows installation of Cursor to PATH
+    export PATH="$PATH:/mnt/c/Users/peter/AppData/Local/Programs/cursor/resources/app/bin"
+else
+    # Add Cursor alias
+    function cursor() {
+        /opt/cursor.appimage --no-sandbox "\${@}" > /dev/null 2>&1 & disown
+    }
+fi

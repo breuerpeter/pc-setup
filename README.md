@@ -1,6 +1,6 @@
 # PC-Setup
 
-## General
+## General setup
 
 ### Config
 
@@ -19,50 +19,54 @@
 - Dark mode
 - Black background
 
-## Ubuntu
+## Instructions
 
-```
-mkdir -p ~/Code && mkdir -p ~/Code/Personal && cd ~/Code/Personal && git clone https://github.com/breuerpeter/PC-Setup.git && cd ./PC-Setup
-sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh
-```
+1. If applicable, install WSL
 
-### Optional software
+    (PowerShell)
+    ```
+    wsl --install
+    wsl --install -d DISTRO_NAME
+    DISTRO_NAME config --default-user USERNAME
+    ```
 
-#### Plotjuggler
-`sudo snap install -y plotjuggler`
+2. Get the code
 
-#### Inkscape
-`sudo apt update && sudo apt install -y --no-install-recommends inkscape`
+    Linux:
+    ```
+    mkdir -p ~/Code && mkdir -p ~/Code/Personal && cd ~/Code/Personal
+    git clone https://github.com/breuerpeter/PC-Setup.git
+    cd ./PC-Setup
+    ```
 
-## Windows
+    WSL:
+    ```
+    cd /mnt/c/Users/peter
+    git clone https://github.com/breuerpeter/PC-Setup.git ./.config
+    cd ./.config
+    ```
 
-(PowerShell)
-```
-wsl --install
-wsl --install -d DISTRO_NAME
-DISTRO_NAME config --default-user USER_NAME
-```
+3. If applicable, run Windows software installation script
 
-(WSL)
-```
-cd /mnt/c/Users/peter && git clone https://github.com/breuerpeter/PC-Setup.git ./.config && cd ./.config
-sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/setup.sh --wsl
-```
+    (PowerShell)
+    ```
+    cd $HOME\.config\windows
+    .\setup.ps1
+    ```
 
-(PowerShell)
-```
-cd $HOME\.config\windows
-.\setup.ps1
-```
+    Not available through *WinGet* yet (install manually):
+    - [TeX Live](https://tug.org/texlive/windows.html)
+    - [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html)
+    - [Microsoft 365 Family](https://apps.microsoft.com/detail/cfq7ttc0k5dm)
 
-Not available through *WinGet* yet:
+4. Run setup scripts
 
-- [TeX Live](https://tug.org/texlive/windows.html)
-- [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html)
-- [Microsoft 365 Family](https://apps.microsoft.com/detail/cfq7ttc0k5dm)
+    WSL/Linux:
+    ```
+    sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/run_scripts.sh
+    ```
 
-
-### Manual configuration
+### Manual configuration for Windows
 
 - Enable settings sync (Windows backup)
 - Adjust screen scaling
@@ -72,9 +76,3 @@ Not available through *WinGet* yet:
 - Disable notifications
 - Most commonly used apps in task bar
 - Show all apps in start window
-
-## Update repo origin URL
-After the setup is completed, run `git remote set-url origin git@github-personal:breuerpeter/PC-Setup.git`
-
-# TODO:
-- Figure out a way to handle zshrc edits by other scripts

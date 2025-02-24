@@ -1,19 +1,22 @@
 #!/bin/bash
 
-WSL=$( [[ " $* " =~ " --wsl " ]] && echo true || echo false )
+if ! [ -n "$WSL_DISTRO_NAME" ]; then
+	echo "Software setup in progress..."
 
-echo "Software setup in progress..."
-
-if [[ "$WSL" = false ]]; then
+	# snap
 	sudo snap install vivaldi
 	sudo snap install --classic code
-	# sudo snap install --classic slack
+	sudo snap install -y plotjuggler
+
+	# apt
 	sudo apt install vim
 	sudo apt install screen
 	sudo apt install wireshark
+
+	# pip
 	pip install rerun-sdk
+
+	echo "Software setup complete."
 fi
 
-sudo snap install gitkraken --classic
 
-echo "Software setup complete."

@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo "Appearance setup in progress..."
+WALLPAPER="/usr/share/backgrounds/canvas_by_roytanck.jpg"
 
-WSL=$( [[ " $* " =~ " --wsl " ]] && echo true || echo false )
+if ! [ -n "$WSL_DISTRO_NAME" ]; then
+	echo "Appearance setup in progress..."
 
-if [[ "$WSL" = false ]]; then
-	# Clear background (make black)
-	gsettings set org.gnome.desktop.background picture-options 'none'
+	gsettings set org.gnome.desktop.background picture-uri "file://$WALLPAPER"
+	gsettings set org.gnome.desktop.background picture-uri-dark "file://$WALLPAPER"
 
 	# Hide icons from desktop
 	gsettings set org.gnome.shell.extensions.desktop-icons show-home false
@@ -18,6 +18,6 @@ if [[ "$WSL" = false ]]; then
 	# Auto-hide dock
 	gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 	gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
-fi
 
-echo "Appearance setup complete."
+	echo "Appearance setup complete."
+fi

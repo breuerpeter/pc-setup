@@ -1,7 +1,5 @@
 #!/bin/bash
 
-WSL=$( [[ " $* " =~ " --wsl " ]] && echo true || echo false )
-
 echo "Terminal setup in progress..."
 
 echo "Installing terminal packages..."
@@ -10,9 +8,9 @@ sudo apt update && sudo apt install -y --no-install-recommends \
 	zsh \
 	tmux
 
-if [[ "$WSL" = false ]]; then
-	# Install wezterm
-	# See https://wezfurlong.org/wezterm/install/linux.html
+if ! [ -n "$WSL_DISTRO_NAME" ]; then
+        # Install wezterm
+        # See https://wezfurlong.org/wezterm/install/linux.html
         curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
         echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
         sudo apt update && sudo apt install -y --no-install-recommends wezterm
@@ -20,7 +18,7 @@ fi
 
 echo "Creating symlinks for dotfiles..."
 
-if [[ "$WSL" = true ]]; then
+if [ -n "$WSL_DISTRO_NAME" ]; then
 	REPO_DIR=/mnt/c/Users/peter/.config
 else
 	REPO_DIR=$HOME/Code/Personal/PC-Setup
@@ -40,6 +38,15 @@ chsh -s $(which zsh)
 # Install Starship prompt
 # See https://github.com/starship/starship
 curl -sS https://starship.rs/install.sh | sh
+
+echo "Installing Catppuccin theme for tmux..."
+
+if [ ! -d $HOME/.tmux/plugins/catppuccin/tmux ]; then
+    git clone -b v2.1.2 https://github.com/catppuccin/tmux.git $HOME/.tmux/plugins/catppuccin/tmux
+    echo "Installed Catppuccin."
+else
+    echo "Catppuccin is already installed."
+fi
 
 echo "Installing tmux plugin manager (TPM)..."
 

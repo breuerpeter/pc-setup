@@ -51,4 +51,7 @@ sleep 2
 # Enable managing repos on Windows file system through WSL
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 
+# Update remote URL
+git remote set-url origin git@github-personal:breuerpeter/PC-Setup.git
+
 echo "Git setup complete."
