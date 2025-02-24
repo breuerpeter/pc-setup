@@ -1,75 +1,26 @@
 Write-Host "Setup in progress..."
 
-$general = @(
-"WezTerm",
-"Vivaldi"
+$programs = @(
+    "WezTerm",
+    "Vivaldi",
+    "Microsoft Visual Studio Code",
+    "Cursor",
+    "MobaXterm",
+    "Ultimaker Cura",
+    "Mendeley Reference Manager",
+    "Ipe extensible drawing editor",
+    "Mathpix Snipping Tool",
+    "VLC media player",
+    "OBS Studio",
+    "Inkscape",
+    "Gyroflow",
+    "Anki",
+    "Betaflight Configurator",
+    "Wireshark",
+    "Slack",
+    "Discord",
+    "Zoom Workplace"
 )
-
-$software = @(
-"Microsoft Visual Studio Code",
-"Cursor", # TODO
-"MobaXterm"
-)
-
-$hardware = @(
-"Ultimaker Cura"
-)
-
-$research = @(
-"Mendeley Reference Manager",
-"Ipe extensible drawing editor",
-"Mathpix Snipping Tool"
-)
-
-$creative = @(
-"VLC media player",
-"OBS Studio",
-"Inkscape",
-"Gyroflow"
-
-)
-
-$learning = @(
-"Anki"
-)
-
-$drones = @(
-"Betaflight Configurator",
-"Wireshark"
-)
-
-$social = @(
-"Slack",
-"Discord",
-"Zoom Workplace"
-)
-
-$lists = @{
-"general" = $general
-"software" = $software
-"hardware" = $hardware
-"research" = $research
-"creative" = $creative
-"learning" = $learning
-"drones" = $drones
-"social" = $social
-}
-
-$programs = @()
-
-if ($args.Count -eq 0) {
-        $programs = $general
-} else {
-        foreach ($arg in $args) {
-                if ($lists.ContainsKey($arg)) {
-                        $programs += $lists[$arg]
-                } else {
-                        Write-Host "Unknown list: $arg"
-                }
-        }
-}
-
-$programs = $programs | Select-Object -Unique
 
 # Install WinGet
 # See https://learn.microsoft.com/en-us/windows/package-manager/winget/#install-winget-on-windows-sandbox
@@ -106,13 +57,13 @@ foreach ($file in $filesToRemove) {
 
 Write-Host "The following programs will be installed:"
 foreach ($program in $programs) {
-        Write-Host "- $program"
+    Write-Host "- $program"
 }
 
 $confirmation = Read-Host "Do you want to proceed with the installations? (y/n)"
 if ($confirmation -ne 'y') {
-        Write-Host "Installation cancelled."
-        exit
+    Write-Host "Installation cancelled."
+    exit
 }
 
 if (Get-Command winget -ErrorAction SilentlyContinue) {
