@@ -20,6 +20,9 @@ $programs = @(
     "Slack",
     "Discord",
     "Zoom Workplace"
+    "Obsidian",
+    "Tailscale",
+    "Synology Drive Client"
 )
 
 # Install WinGet
