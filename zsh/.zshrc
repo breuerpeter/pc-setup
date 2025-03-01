@@ -16,7 +16,6 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # Additions to PATH
-export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Aliases

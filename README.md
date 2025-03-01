@@ -55,7 +55,6 @@
     ```
 
     Not available through *WinGet* yet (install manually):
-    - [TeX Live](https://tug.org/texlive/windows.html)
     - [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html)
     - [Microsoft 365 Family](https://apps.microsoft.com/detail/cfq7ttc0k5dm)
 
