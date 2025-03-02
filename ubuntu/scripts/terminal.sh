@@ -21,7 +21,7 @@ echo "Creating symlinks for dotfiles..."
 if [ -n "$WSL_DISTRO_NAME" ]; then
 	REPO_DIR=/mnt/c/Users/peter/.config
 else
-	REPO_DIR=$HOME/Code/Personal/PC-Setup
+	REPO_DIR=$HOME/code/personal/pc-setup
 	mkdir -p ~/.config/wezterm
 	ln -s $REPO_DIR/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
 fi

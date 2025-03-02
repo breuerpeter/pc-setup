@@ -1,4 +1,4 @@
-# PC-Setup
+# pc-setup
 
 ## General setup
 
@@ -34,16 +34,17 @@
 
     Linux:
     ```
-    mkdir -p ~/Code && mkdir -p ~/Code/Personal && cd ~/Code/Personal
-    git clone https://github.com/breuerpeter/PC-Setup.git
-    cd ./PC-Setup
+    mkdir -p ~/code && mkdir -p ~/code/personal && cd ~/code/personal
+    git clone https://github.com/breuerpeter/pc-setup.git
+    cd ./pc-setup
     ```
 
     WSL:
     ```
     cd /mnt/c/Users/peter
-    git clone https://github.com/breuerpeter/PC-Setup.git ./.config
+    git clone https://github.com/breuerpeter/pc-setup.git ./.config
     cd ./.config
+    ln -s /mnt/c/Users/peter/.config ~/code/personal/pc-setup
     ```
 
 3. If applicable, run Windows software installation script

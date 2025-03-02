@@ -52,6 +52,6 @@ sleep 2
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 
 # Update remote URL
-git remote set-url origin git@github-personal:breuerpeter/PC-Setup.git
+git remote set-url origin git@github-personal:breuerpeter/pc-setup.git
 
 echo "Git setup complete."
