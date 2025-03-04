@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Personal GitHub setup in progress..."
+echo "personal GitHub setup in progress..."
 
 sudo apt install -y --no-install-recommends git
 
