@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if ! [ -n "$WSL_DISTRO_NAME" ]; then
-    if ! [ -f /opt/cursor.appimage ]; then
+    if ! [ -f /opt/cursor/Cursor.AppImage ]; then
         echo "Installing Cursor..."
 
         # URLs for Cursor AppImage and Icon
@@ -9,8 +9,8 @@ if ! [ -n "$WSL_DISTRO_NAME" ]; then
         ICON_URL="https://raw.githubusercontent.com/rahuljangirwork/copmany-logos/refs/heads/main/cursor.png"
 
         # Paths for installation
-        APPIMAGE_PATH="/opt/cursor.appimage"
-        ICON_PATH="/opt/cursor.png"
+        APPIMAGE_PATH="/opt/cursor/Cursor.AppImage"
+        ICON_PATH="/opt/cursor/cursor.png"
         DESKTOP_ENTRY_PATH="/usr/share/applications/cursor.desktop"
 
         # Install curl if not installed

@@ -27,6 +27,6 @@ if [ -n "$WSL_DISTRO_NAME" ]; then
 else
     # Add Cursor alias
     function cursor() {
-        /opt/cursor.appimage --no-sandbox "\${@}" > /dev/null 2>&1 & disown
+        /opt/cursor/Cursor.AppImage --no-sandbox "\${@}" > /dev/null 2>&1 & disown
     }
 fi
