@@ -27,6 +27,16 @@ if [ -n "$WSL_DISTRO_NAME" ]; then
 else
     # Add Cursor alias
     function cursor() {
-        /opt/cursor/Cursor.AppImage --no-sandbox "\${@}" > /dev/null 2>&1 & disown
+        # Get the absolute path of the argument
+        if [ $# -eq 0 ]; then
+            # If no arguments, use current directory
+            local abs_path=$(realpath .)
+        else
+            # Convert the provided path to absolute path
+            local abs_path=$(realpath "$1")
+        fi
+        
+        # Launch Cursor with the absolute path
+        /opt/cursor/Cursor.AppImage --no-sandbox "$abs_path" > /dev/null 2>&1 & disown
     }
 fi
