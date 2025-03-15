@@ -25,9 +25,7 @@
 
     (PowerShell)
     ```
-    wsl --install
     wsl --install -d DISTRO_NAME
-    DISTRO_NAME config --default-user USERNAME
     ```
 
 2. Get the code
@@ -41,9 +39,10 @@
 
     WSL:
     ```
+    mkdir -p ~/code && mkdir -p ~/code/personal
     cd /mnt/c/Users/peter
-    git clone https://github.com/breuerpeter/pc-setup.git ./.config
-    cd ./.config
+    git clone https://github.com/breuerpeter/pc-setup.git .config
+    cd .config
     ln -s /mnt/c/Users/peter/.config ~/code/personal/pc-setup
     ```
 
@@ -61,7 +60,6 @@
 
 4. Run setup scripts
 
-    WSL/Linux:
     ```
     sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/run_scripts.sh
     ```
