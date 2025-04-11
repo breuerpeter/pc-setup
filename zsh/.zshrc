@@ -23,7 +23,7 @@ alias wireshark='wireshark & disown'
 
 if [ -n "$WSL_DISTRO_NAME" ]; then
     # Add Windows installation of Cursor to PATH
-    export PATH="$PATH:/mnt/c/Users/peter/AppData/Local/Programs/cursor/resources/app/bin"
+    export PATH="$PATH:/mnt/c/Program Files/Cursor/resources/app/bin"
 else
     # Add Cursor alias
     function cursor() {
