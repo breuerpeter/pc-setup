@@ -3,6 +3,13 @@
 # Enable strict error handling
 set -o pipefail
 
+# Move this repo to the code dir
+mkdir -p ~/code && mkdir -p ~/code/personal && cd ~/code/personal
+mv "$(pwd)/pc-setup" . && cd pc-setup
+
+# Run setup scripts
+sudo chmod +x ./scripts # /mnt/c/Users/peter/.config
+
 echo "Starting setup..."
 
 for script in ./ubuntu/scripts/*.sh; do
@@ -14,4 +21,4 @@ for script in ./ubuntu/scripts/*.sh; do
 	fi
 done
 
-echo "Setup complete."
+echo "Setup complete"

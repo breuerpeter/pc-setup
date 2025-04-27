@@ -1,8 +1,10 @@
 #!/bin/bash
 
-echo "personal GitHub setup in progress..."
+echo "Personal GitHub setup in progress..."
 
-sudo apt install -y --no-install-recommends git
+if [ -n "$WSL_DISTRO_NAME" ]; then
+	sudo apt install -y --no-install-recommends git
+fi
 
 GIT_USERNAME="Peter Breuer"
 GIT_EMAIL="peter.breuer.profiles@gmail.com"
@@ -54,4 +56,4 @@ export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 # Update remote URL
 git remote set-url origin git@github-personal:breuerpeter/pc-setup.git
 
-echo "Git setup complete."
+echo "Git setup complete"

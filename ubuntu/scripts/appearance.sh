@@ -2,6 +2,7 @@
 
 WALLPAPER="/usr/share/backgrounds/canvas_by_roytanck.jpg"
 
+# Only run on native Linux
 if ! [ -n "$WSL_DISTRO_NAME" ]; then
 	echo "Appearance setup in progress..."
 
@@ -19,5 +20,5 @@ if ! [ -n "$WSL_DISTRO_NAME" ]; then
 	gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 	gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
 
-	echo "Appearance setup complete."
+	echo "Appearance setup complete"
 fi

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Only run on native Linux
 if ! [ -n "$WSL_DISTRO_NAME" ]; then
     if ! [ -f /opt/cursor/Cursor.AppImage ]; then
         echo "Installing Cursor..."
@@ -40,8 +41,8 @@ Type=Application
 Categories=Development;
 EOL
 
-        echo "Installed Cursor."
+        echo "Installed Cursor"
     else
-        echo "Cursor is already installed."
+        echo "Cursor is already installed"
     fi
 fi

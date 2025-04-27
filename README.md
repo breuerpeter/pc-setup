@@ -12,7 +12,7 @@
 ### Performance
 
 - Uninstall bloatware and unwanted optional features
-- Disable unnecessary startup-apps
+- Disable unnecessary startup apps
 
 ### Appearance
 
@@ -21,50 +21,15 @@
 
 ## Instructions
 
-1. If applicable, install WSL
+### Windows
 
-    (PowerShell)
-    ```
-    wsl --install -d DISTRO_NAME
-    ```
+```powershell
+winget install --id Git.Git -e --source
+git clone https://github.com/breuerpeter/pc-setup.git
+.\pc-setup\windows\setup.ps1
+```
 
-2. Get the code
-
-    Linux:
-    ```
-    mkdir -p ~/code && mkdir -p ~/code/personal && cd ~/code/personal
-    git clone https://github.com/breuerpeter/pc-setup.git
-    cd ./pc-setup
-    ```
-
-    WSL:
-    ```
-    mkdir -p ~/code && mkdir -p ~/code/personal
-    cd /mnt/c/Users/peter
-    git clone https://github.com/breuerpeter/pc-setup.git .config
-    cd .config
-    ln -s /mnt/c/Users/peter/.config ~/code/personal/pc-setup
-    ```
-
-3. If applicable, run Windows software installation script
-
-    (PowerShell)
-    ```
-    cd $HOME\.config\windows
-    .\setup.ps1
-    ```
-
-    Not available through *WinGet* yet (install manually):
-    - [QGroundControl](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html)
-    - [Microsoft 365 Family](https://apps.microsoft.com/detail/cfq7ttc0k5dm)
-
-4. Run setup scripts
-
-    ```
-    sudo chmod +x ./ubuntu ./ubuntu/scripts && ./ubuntu/run_scripts.sh
-    ```
-
-### Manual configuration for Windows
+#### Manual configuration
 
 - Enable settings sync (Windows backup)
 - Adjust screen scaling
@@ -74,3 +39,11 @@
 - Disable notifications
 - Most commonly used apps in task bar
 - Show all apps in start window
+
+### Linux
+
+```bash
+sudo apt install -y --no-install-recommends git
+git clone https://github.com/breuerpeter/pc-setup.git
+sudo chmod +x ./ubuntu && ./ubuntu/setup.sh
+```

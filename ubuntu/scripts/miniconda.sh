@@ -15,4 +15,4 @@ rm -rf ~/miniconda3/miniconda.sh
 # Configure
 conda config --set auto_activate_base false
 
-echo "Miniconda setup complete."
+echo "Miniconda setup complete"
