@@ -1,4 +1,4 @@
-$wslDistro = "Ubuntu-22.04"
+$wslDistro = "	"
 
 Write-Host "Setup in progress..."
 
@@ -72,6 +72,7 @@ Write-Host "- [Microsoft 365 Family](https://apps.microsoft.com/detail/cfq7ttc0k
 
 # Install WSL
 wsl --install -d $wslDistro
+wsl --setdefault $wslDistro
 
 # Run WSL setup scripts
 wsl sudo chmod +x /mnt/c/Users/$env:USERNAME/Desktop/code/personal/pc-setup/ubuntu/run_scripts.sh
