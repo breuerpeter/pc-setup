@@ -1,0 +1,12 @@
+---
+name: freefly
+project_root: "/home/peter"
+windows:
+- build:
+    layout: 96e6,238x190,0,0,9
+    panes:
+    - cd /home/peter/code/freefly/PX4_firmware_private_Freefly
+- console:
+    layout: 4b9f,238x190,0,0,10
+    panes:
+    - cd /home/peter
