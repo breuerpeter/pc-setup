@@ -7,6 +7,7 @@ if ! [ -n "$WSL_DISTRO_NAME" ]; then
 	sudo snap install -y vivaldi
 	sudo snap install -y --classic code
 	sudo snap install -y plotjuggler
+	sudo snap install -y --classic tio
 
 	# apt
 	sudo apt install -y vim
