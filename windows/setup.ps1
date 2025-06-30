@@ -13,6 +13,12 @@ Write-Host "Repo moved to $env:USERPROFILE\Desktop\code\personal\pc-setup"
 New-Item -ItemType Directory -Path "$env:USERPROFILE\.config\wezterm" -Force
 New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.config\wezterm\wezterm.lua" -Target "$env:USERPROFILE\Desktop\code\personal\pc-setup\wezterm\wezterm.lua"
 
+# Create symlinks for Cursor IDE settings
+New-Item -ItemType Directory -Path "$env:APPDATA\Cursor\User" -Force
+New-Item -ItemType SymbolicLink -Path "$env:APPDATA\Cursor\User\settings.json" -Target "$env:USERPROFILE\Desktop\code\personal\pc-setup\ide\settings.json" -Force
+New-Item -ItemType SymbolicLink -Path "$env:APPDATA\Cursor\User\keybindings.json" -Target "$env:USERPROFILE\Desktop\code\personal\pc-setup\ide\keybindings.json" -Force
+Write-Host "Cursor IDE settings symlinked to $env:APPDATA\Cursor\User"
+
 # Clone and set up wiki
 git clone https://github.com/breuerpeter/evergreen.git "$env:USERPROFILE\Desktop\code\personal\evergreen"
 New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\Desktop\notes" -Target "$env:USERPROFILE\Desktop\code\personal\evergreen\content"

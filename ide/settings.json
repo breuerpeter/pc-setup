@@ -1,0 +1,168 @@
+{
+    "workbench.colorTheme": "Night Owl",
+    "workbench.editor.showTabs": "none",
+    "terminal.integrated.profiles.linux": {
+        "tmux": {
+            "path": "tmux",
+            "args": [
+                "new-session"
+            ],
+            "icon": "terminal-tmux"
+        }
+    },
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    "isort.args": [
+        "--profile",
+        "black"
+    ],
+    "diffEditor.maxComputationTime": 0,
+    "remote.autoForwardPortsSource": "hybrid",
+    "git.openRepositoryInParentFolders": "always",
+    "remote.SSH.remotePlatform": {
+        "calyrex.duckdns.org": "linux",
+        "black": "linux",
+        "snaga": "linux"
+    },
+    "cmake.showOptionsMovedNotification": false,
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false,
+    "editor.wordWrap": "off",
+    "editor.minimap.enabled": false,
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.formatOnSave": true
+    },
+    "[c]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.formatOnSave": true
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "cmake.options.statusBarVisibility": "visible",
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "bib2gls",
+            "command": "bib2gls ",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "arara verbose",
+            "command": "arara",
+            "args": [
+                "-v",
+                "%DOC%"
+            ],
+            "env": {}
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "xelatex",
+            "tools": [
+                "xelatex"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "tools": [
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "bib2gls",
+            "tools": [
+                "bib2gls"
+            ]
+        },
+        {
+            "name": "arara",
+            "tools": [
+                "arara verbose"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipe.default": "arara",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "workbench.editorAssociations": {
+        "*.pdf": "latex-workshop-pdf-hook"
+    },
+    "cmake.pinnedCommands": [
+        "cmake.clean",
+        "cmake.cleanRebuild",
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "gitlens.launchpad.indicator.enabled": false,
+    "comment-divider.shouldLengthIncludeIndent": true,
+    "git.ignoreMissingGitWarning": true,
+    "autoDocstring.startOnNewLine": true,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorBlinking": "smooth",
+    "cmake.revealLog": "error",
+    "window.customTitleBarVisibility": "auto",
+    "workbench.sideBar.location": "right",
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "julia.symbolCacheDownload": true,
+    "[julia]": {
+        "editor.defaultFormatter": "julialang.language-julia"
+    },
+    "dev.containers.executeInWSL": true,
+    "makefile.configureOnOpen": true,
+    "docker.extension.enableComposeLanguageServer": false
+}
