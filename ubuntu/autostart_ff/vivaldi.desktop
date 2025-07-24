@@ -1,8 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Vivaldi
-Comment=Web browser
-Exec=vivaldi
-Icon=vivaldi
+Exec=/snap/bin/vivaldi.vivaldi-stable
 Terminal=false
 X-GNOME-Autostart-enabled=true 

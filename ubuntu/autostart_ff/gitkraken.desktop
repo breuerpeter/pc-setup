@@ -1,8 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=GitKraken
-Comment=Git client
 Exec=gitkraken
-Icon=gitkraken
 Terminal=false
 X-GNOME-Autostart-enabled=true 

@@ -1,8 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=WezTerm
-Comment=Terminal emulator
 Exec=wezterm
-Icon=wezterm
 Terminal=false
 X-GNOME-Autostart-enabled=true 

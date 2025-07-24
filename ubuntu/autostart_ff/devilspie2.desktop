@@ -1,8 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Devilspie2
-Comment=Window matching utility
 Exec=devilspie2
-Icon=applications-system
 Terminal=false
 X-GNOME-Autostart-enabled=true 
