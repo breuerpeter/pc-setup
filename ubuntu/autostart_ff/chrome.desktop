@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Vivaldi
-Exec=/snap/bin/vivaldi.vivaldi-stable
+Name=Chrome
+Exec=google-chrome-stable
 Terminal=false
 X-GNOME-Autostart-enabled=true 

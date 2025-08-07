@@ -4,7 +4,6 @@ if ! [ -n "$WSL_DISTRO_NAME" ]; then
 	echo "Software setup in progress..."
 
 	# snap
-	sudo snap install -y vivaldi
 	sudo snap install -y --classic code
 	sudo snap install -y plotjuggler
 	sudo snap install -y --classic tio
@@ -17,6 +16,10 @@ if ! [ -n "$WSL_DISTRO_NAME" ]; then
 
 	# pip
 	pip install -y rerun-sdk
+
+	# Chrome
+	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+	sudo dpkg -i google-chrome-stable_current_amd64.deb
 
 	echo "Software setup complete"
 fi

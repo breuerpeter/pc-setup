@@ -9,7 +9,7 @@ if ! [ -n "$WSL_DISTRO_NAME" ]; then
 	CONFIG_DIR="$UBUNTU_DIR/config"
 
 	# List of applications to autostart
-	APPS=("vivaldi" "cursor" "gitkraken" "wezterm" "obsidian" "devilspie2")
+	APPS=("chrome" "cursor" "gitkraken" "wezterm" "obsidian" "devilspie2")
 
 	mkdir -p ~/.config/autostart
 	mkdir -p ~/.config/devilspie2

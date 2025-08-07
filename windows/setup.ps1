@@ -28,7 +28,7 @@ Write-Host "Manual step required: set up Synology Drive Client to sync $env:USER
 # Install programs
 $programs = @(
     "wez.wezterm",
-    "Vivaldi.Vivaldi",
+    "Google.Chrome",
     "Microsoft.VisualStudioCode",
     "Anysphere.Cursor",
     "Axosoft.GitKraken",
