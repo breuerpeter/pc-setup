@@ -5,7 +5,7 @@ if ! [ -n "$WSL_DISTRO_NAME" ]; then
 
 	SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 	UBUNTU_DIR="$(dirname "$SCRIPT_DIR")"
-	AUTOSTART_DIR="$UBUNTU_DIR/autostart_ff"
+	AUTOSTART_DIR="$UBUNTU_DIR/desktop_entries"
 	CONFIG_DIR="$UBUNTU_DIR/config"
 
 	# List of applications to autostart

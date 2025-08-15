@@ -3,4 +3,4 @@ Type=Application
 Name=GitKraken
 Exec=gitkraken
 Terminal=false
-X-GNOME-Autostart-enabled=true 
+X-GNOME-Autostart-enabled=true

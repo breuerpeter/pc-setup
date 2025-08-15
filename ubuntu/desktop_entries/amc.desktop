@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=AMC
+Exec=/opt/amc/AuterionMissionControl.AppImage
+Icon=/opt/amc/amc.png
+Type=Application
+Categories=Development;

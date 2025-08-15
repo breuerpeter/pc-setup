@@ -30,17 +30,6 @@ if ! [ -n "$WSL_DISTRO_NAME" ]; then
         echo "Downloading Cursor icon..."
         sudo curl -L $ICON_URL -o $ICON_PATH
 
-        # Create a .desktop entry for Cursor
-        echo "Creating .desktop entry for Cursor..."
-        sudo bash -c "cat > $DESKTOP_ENTRY_PATH" <<EOL
-[Desktop Entry]
-Name=Cursor AI IDE
-Exec=$APPIMAGE_PATH --no-sandbox
-Icon=$ICON_PATH
-Type=Application
-Categories=Development;
-EOL
-
         echo "Installed Cursor"
     else
         echo "Cursor is already installed"
