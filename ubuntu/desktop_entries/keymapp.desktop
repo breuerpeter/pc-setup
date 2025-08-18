@@ -1,6 +1,5 @@
 [Desktop Entry]
 Name=Keymapp
+Type=Application
 Exec=/opt/keymapp/keymapp
 Icon=/opt/keymapp/icon.png
-Type=Application
-Categories=Development;

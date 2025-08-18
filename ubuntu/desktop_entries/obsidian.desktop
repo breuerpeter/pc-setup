@@ -1,6 +1,6 @@
 [Desktop Entry]
-Type=Application
 Name=Obsidian
+Type=Application
 Exec=obsidian
 Terminal=false
 X-GNOME-Autostart-enabled=true

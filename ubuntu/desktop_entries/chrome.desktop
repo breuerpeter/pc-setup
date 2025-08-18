@@ -1,6 +1,6 @@
 [Desktop Entry]
-Type=Application
 Name=Chrome
+Type=Application
 Exec=google-chrome-stable
 Terminal=false
 X-GNOME-Autostart-enabled=true 

@@ -1,6 +1,6 @@
 [Desktop Entry]
-Type=Application
 Name=WezTerm
+Type=Application
 Exec=wezterm
 Terminal=false
-X-GNOME-Autostart-enabled=true 
+X-GNOME-Autostart-enabled=true
