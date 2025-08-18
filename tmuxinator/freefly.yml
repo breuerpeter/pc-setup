@@ -9,4 +9,4 @@ windows:
 - console:
     layout: 4b9f,238x190,0,0,10
     panes:
-    - cd /home/peter
+    - cd /home/peter && tio -b 57600 /dev/ttyACM1
