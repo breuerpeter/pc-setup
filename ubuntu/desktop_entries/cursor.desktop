@@ -1,6 +1,7 @@
 [Desktop Entry]
-Type=Application
 Name=Cursor
-Exec=opt/cursor/Cursor.AppImage --no-sandbox
+Type=Application
+Exec=/opt/cursor/Cursor.AppImage --no-sandbox
+Icon=/opt/cursor/cursor.png
 Terminal=false
 X-GNOME-Autostart-enabled=true 
