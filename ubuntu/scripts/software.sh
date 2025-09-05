@@ -14,9 +14,6 @@ if ! [ -n "$WSL_DISTRO_NAME" ]; then
 	sudo apt install -y wireshark
 	sudo apt install -y devilspie2 # window management
 
-	# pip
-	pip install -y rerun-sdk
-
 	# Chrome
 	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 	sudo dpkg -i google-chrome-stable_current_amd64.deb
