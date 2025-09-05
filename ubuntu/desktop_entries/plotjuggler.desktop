@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=PlotJuggler
+Type=Application
+Exec=/opt/plotjuggler/PlotJuggler.AppImage
