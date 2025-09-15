@@ -1,12 +1,16 @@
 ---
 name: freefly
-project_root: "/home/peter"
+root: "/home/peter/code/freefly"
 windows:
-- build:
-    layout: 96e6,238x190,0,0,9
+- dev:
+    layout: even-vertical
     panes:
-    - cd /home/peter/code/freefly/PX4_firmware_private_Freefly
+        - Cursor CLI:
+            - cursor-agent
 - console:
-    layout: 4b9f,238x190,0,0,10
+    layout: even-vertical
     panes:
-    - cd /home/peter && tio -b 57600 /dev/ttyACM1
+        - tio ACM1:
+            - tio -b 57600 /dev/ttyACM1
+        - tio ACM2:
+            - tio -b 57600 /dev/ttyACM2
