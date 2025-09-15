@@ -7,6 +7,9 @@ windows:
     panes:
         - Cursor CLI:
             - cursor-agent
+        - Terminal:
+            - clear
+            - toilet -f smblock  --metal "FREEFLY"
 - console:
     layout: even-vertical
     panes:
