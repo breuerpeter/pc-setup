@@ -30,6 +30,10 @@ if ! [ -n "$WSL_DISTRO_NAME" ]; then
         echo "Downloading Cursor icon..."
         sudo curl -L $ICON_URL -o $ICON_PATH
 
+        # Install Cursor CLI
+        echo "Installing Cursor CLI..."
+        curl https://cursor.com/install -fsS | bash
+
         echo "Installed Cursor"
     else
         echo "Cursor is already installed"
