@@ -21,6 +21,7 @@ export PATH="$HOME/.local/bin:$PATH"
 # Aliases
 alias wireshark='wireshark & disown'
 alias mux='tmuxinator'
+alias ai='cursor-agent'
 
 if [ -n "$WSL_DISTRO_NAME" ]; then
     # Add Windows installation of Cursor to PATH
