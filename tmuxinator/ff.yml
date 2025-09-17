@@ -1,15 +1,14 @@
 ---
-name: freefly
+name: ff
 root: "/home/peter/code/freefly"
 windows:
 - dev:
     layout: even-vertical
     panes:
-        - Cursor CLI:
-            - cursor-agent
+        - Claude Code:
+            - claude
         - Terminal:
             - clear
-            - toilet -f smblock  --metal "FREEFLY"
 - console:
     layout: even-vertical
     panes:

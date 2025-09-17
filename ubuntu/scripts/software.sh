@@ -4,7 +4,6 @@ if ! [ -n "$WSL_DISTRO_NAME" ]; then
 	echo "Software setup in progress..."
 
 	# snap
-	sudo snap install -y --classic code
 	sudo snap install -y --classic tio
 	
 	# apt
@@ -12,7 +11,9 @@ if ! [ -n "$WSL_DISTRO_NAME" ]; then
 	sudo apt install -y screen
 	sudo apt install -y wireshark
 	sudo apt install -y devilspie2 # window management
-	sudo apt install -y toilet
+
+	# Claude Code
+	curl -fsSL https://claude.ai/install.sh | bash
 
 	# Chrome
 	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
