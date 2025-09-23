@@ -29,7 +29,6 @@ Write-Host "Manual step required: set up Synology Drive Client to sync $env:USER
 $programs = @(
     "wez.wezterm",
     "Google.Chrome",
-    "Microsoft.VisualStudioCode",
     "Anysphere.Cursor",
     "Axosoft.GitKraken",
     "Obsidian.Obsidian",
@@ -47,8 +46,6 @@ $programs = @(
     "Elsevier.MendeleyReferenceManager",
     "Zoom.Zoom",
     # "SlackTechnologies.Slack",
-    # "Mathpix.MathpixSnippingTool",
-    # "Mobatek.MobaXterm",
     # "Ultimaker.Cura",
     # "Inkscape.Inkscape",
 )
