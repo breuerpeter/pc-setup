@@ -68,7 +68,7 @@ tmux source-file $HOME/.tmux.conf
 # Set default terminal emulator to WezTerm
 sudo update-alternatives --set x-terminal-emulator /usr/bin/open-wezterm-here
 
-# set up tmuxinator
+# Set up tmuxinator
 sudo apt-get install -y tmuxinator
 ln -s $REPO_DIR/tmuxinator ~/.config/tmuxinator
 
