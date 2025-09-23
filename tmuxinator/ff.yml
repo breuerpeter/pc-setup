@@ -1,6 +1,6 @@
 ---
 name: ff
-root: "/home/peter/code/freefly"
+root: "/home/peter/code/freefly/PX4_firmware_private_Freefly"
 windows:
 - dev:
     layout: even-vertical
