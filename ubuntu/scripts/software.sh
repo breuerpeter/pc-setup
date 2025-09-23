@@ -8,7 +8,6 @@ if ! [ -n "$WSL_DISTRO_NAME" ]; then
 	
 	# apt
 	sudo apt install -y vim
-	sudo apt install -y screen
 	sudo apt install -y wireshark
 	sudo apt install -y devilspie2 # window management
 
