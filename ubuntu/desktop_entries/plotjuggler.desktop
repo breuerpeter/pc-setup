@@ -2,3 +2,4 @@
 Name=PlotJuggler
 Type=Application
 Exec=/opt/plotjuggler/PlotJuggler.AppImage
+Icon=/opt/amc/plotjuggler.png
