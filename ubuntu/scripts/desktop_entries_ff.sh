@@ -16,6 +16,12 @@ if ! [ -n "$WSL_DISTRO_NAME" ]; then
 	for app in "${APPS[@]}"; do
 		sudo ln -sf "$AUTOSTART_DIR/$app.desktop" /usr/share/applications/
         sudo chmod +x /usr/share/applications/$app.desktop
+		
+		# Also symlink PNG icon files if they exist
+		if [ -f "$AUTOSTART_DIR/$app.png" ]; then
+			sudo mkdir -p /opt/$app
+			sudo ln -sf "$AUTOSTART_DIR/$app.png" /opt/$app/$app.png
+		fi
 	done
 
     echo "Desktop entries created"
