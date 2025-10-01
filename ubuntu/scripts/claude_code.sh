@@ -13,6 +13,10 @@ if ! [ -n "$WSL_DISTRO_NAME" ]; then
 	# Connect Docker MCP Gateway to Claude Code
 	claude mcp add docker-mcp-local --scope user docker mcp gateway run
 
+	# Connect Bagel to Claude Code # TODO: include container start command, or integrate with Docker MCP Gateway
+	# https://github.com/Extelligence-ai/bagel/blob/stage/doc/runbooks/setup/claude_code.md
+	claude mcp add --scope user --transport sse bagel http://0.0.0.0:8000/sse
+
 	# Create symlinks for prompt templates
 	mkdir -p ~/.claude/commands
 	ln -sf $CONFIG_DIR/claude_code/* ~/.claude/commands/ 2>/dev/null || true
