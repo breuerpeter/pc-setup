@@ -11,7 +11,7 @@ if ! [ -n "$WSL_DISTRO_NAME" ]; then
 	curl -fsSL https://claude.ai/install.sh | bash
 
 	# Connect Docker MCP Gateway to Claude Code
-	claude mcp add docker-mcp-local -- docker mcp gateway run
+	claude mcp add docker-mcp-local --scope user docker mcp gateway run
 
 	# Create symlinks for prompt templates
 	mkdir -p ~/.claude/commands
