@@ -9,7 +9,7 @@ if ! [ -n "$WSL_DISTRO_NAME" ]; then
 	CONFIG_DIR="$UBUNTU_DIR/config"
 
 	# List of applications to create desktop entries for
-	APPS=("cursor" "amc" "keymapp", "logic", "claude_code", "plotjuggler", "gitkraken")
+	APPS=("cursor" "amc" "keymapp", "logic", "claude_code", "plotjuggler", "gitkraken", "qgc")
 
 	mkdir -p ~/.config/desktop_entries
 
