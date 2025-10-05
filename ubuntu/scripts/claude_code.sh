@@ -15,7 +15,7 @@ if ! [ -n "$WSL_DISTRO_NAME" ]; then
 
 	# Create symlinks for prompt templates
 	mkdir -p ~/.claude/commands
-	ln -sf $CONFIG_DIR/claude_code/* ~/.claude/commands/ 2>/dev/null || true
+	ln -sf $CONFIG_DIR/claude_code/commands/* ~/.claude/commands/ 2>/dev/null || true
 
     echo "Claude Code setup complete"
 fi
